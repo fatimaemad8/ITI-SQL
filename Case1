@@ -1,3 +1,6 @@
+# E-R Diagram
+
+```mermaid
 erDiagram
     EMPLOYEE {
         string SSN PK
