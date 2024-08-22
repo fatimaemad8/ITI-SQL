@@ -1,0 +1,33 @@
+erDiagram
+    EMPLOYEE {
+        string SSN PK
+        string Fname
+        string Lname
+        date Birth_Date
+        string Gender
+    }
+
+    DEPARTMENT {
+        string DName
+        int DNUM PK
+        string Location
+    }
+
+    PROJECT {
+        string Pname
+        int PNumber PK
+        string Location
+        string City
+    }
+
+    DEPENDENT {
+        string Dependent_Name PK
+        string Gender
+        date Birth_Date
+    }
+
+    EMPLOYEE ||--o{ DEPENDENT : has
+    EMPLOYEE ||--o| DEPARTMENT : works_in
+    DEPARTMENT ||--o| EMPLOYEE : manages
+    DEPARTMENT ||--o{ PROJECT : has
+    EMPLOYEE ||--o{ PROJECT : works_on
