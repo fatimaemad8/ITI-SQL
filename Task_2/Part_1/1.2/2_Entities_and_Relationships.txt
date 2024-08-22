@@ -1,25 +1,40 @@
-Entities and Relationships:
+Entities and Relationships
 
-1. Sales_Office
-   - Num (Primary Key)
+Entities:
+
+1. Sales Office
+   - Num (PK)
    - Loc
-   - EmpID (Foreign Key)
+   - EmpID (FK)
 
 2. Employee
-   - ID (Primary Key)
+   - ID (PK)
    - Name
-   - Sales_Office_Num (Foreign Key)
 
 3. Property
-   - Property_ID (Primary Key)
-   - Owner_ID (Foreign Key)
+   - Property_ID (PK)
+   - Owner_ID (FK)
+
+4. Own Property
+   - Property_ID (FK)
+   - Owner_ID (FK)
    - Percent
 
-4. Owner
-   - ID (Primary Key)
+5. Owner
+   - ID (PK)
    - Name
    - Add
    - City
    - State
    - Zip
-   - Sales_Office_Num (Foreign Key)
+   - Sales_Office_Num (FK)
+
+Relationships:
+
+- Sales Office (Num) employs Employee (ID): "employs"
+- Sales Office (Num) has Owner (ID): "has"
+- Employee (ID) works in Sales Office (Num): "works_in"
+- Owner (ID) owns Own Property: "owns"
+- Property (Property_ID) is part of Own Property: "is_part_of"
+- Owner (ID) owns Property (Property_ID): "owns"
+- Sales Office (Num) manages Property (Property_ID): "manages"
