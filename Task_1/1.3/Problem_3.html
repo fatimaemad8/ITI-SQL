@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-R Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        erDiagram
+            WARD {
+                int Ward_ID PK
+                string Name
+            }
+            PATIENT {
+                int Patient_ID PK
+                string Name
+                date Date_Of_Birth
+            }
+            CONSULTANT {
+                int Consultant_ID PK
+                string Name
+            }
+            NURSE {
+                int Nurse_Number PK
+                string Name
+                string Address
+            }
+            DRUG {
+                int Drug_Code PK
+                string Recommended_Dosage
+                string Brand_Name
+            }
+
+            WARD ||--o{ PATIENT : Hosts
+            PATIENT ||--|| CONSULTANT : Assigned_To
+            NURSE ||--|| WARD : Supervises
+            NURSE ||--o{ DRUG : Administers
+    </div>
+</body>
+</html>
 
