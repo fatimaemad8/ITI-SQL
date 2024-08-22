@@ -49,11 +49,11 @@
               }
 
               MUSICIAN ||--o{ PLAY_INSTRUMENT : ""
-              INSTRUMENT ||--o{ PLAY_INSTRUMENT : ""
+              INSTRUMENT ||--o{ PLAY_INSTRUMENT : Inst_name
               MUSICIAN ||--o{ ALBUM : ""
-              ALBUM ||--o{ SONG : ""
+              ALBUM ||--o{ SONG : Album_ID
               MUSICIAN ||--o{ PLAY_SONG : ""
-              SONG ||--o{ PLAY_SONG : ""
+              SONG ||--o{ PLAY_SONG : Song_Title
       </div>
   </body>
   </html>
