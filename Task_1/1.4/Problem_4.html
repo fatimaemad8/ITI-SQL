@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-R Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        erDiagram
+            AIRLINE {
+                int Airline_ID PK
+                string Name
+                string Address
+                string Contact_Person
+                string Phone_Number
+            }
+            EMPLOYEE {
+                int Employee_ID PK
+                string Name
+                string Address
+                date Birthday
+                string Gender
+                string Position
+                string Qualifications
+            }
+            AIRCRAFT {
+                int Aircraft_ID PK
+                int Capacity
+                string Model
+            }
+            ROUTE {
+                int Route_ID PK
+                string Origin
+                string Destination
+                int Distance
+                string Classification
+            }
+            CREW {
+                int Crew_ID PK
+                string Major_Pilot
+                string Assistant_Pilot
+                string Hostess_1
+                string Hostess_2
+            }
+            TRANSACTION {
+                int Transaction_ID PK
+                date Date
+                string Description
+                float Amount
+            }
+
+            AIRLINE ||--o{ EMPLOYEE : Employs
+            AIRLINE ||--o{ AIRCRAFT : Owns
+            AIRCRAFT ||--o{ ROUTE : Assigned_To
+            AIRCRAFT ||--|| CREW : Crewed_By
+            AIRLINE ||--o{ TRANSACTION : Records
+    </div>
+</body>
+</html>
 
