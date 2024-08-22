@@ -1,1 +1,59 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>E-R Diagram</title>
+      <script type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+          mermaid.initialize({ startOnLoad: true });
+      </script>
+  </head>
+  <body>
+      <div class="mermaid">
+          erDiagram
+              MUSICIAN {
+                  int ID PK
+                  string Name
+                  string Street
+                  string City
+                  string Phone
+              }
+              
+              INSTRUMENT {
+                  string Name PK
+                  string Key
+              }
+              
+              PLAY_INSTRUMENT {
+                  int MID FK
+                  string Inst_name FK
+              }
+              
+              ALBUM {
+                  int ID PK
+                  date Date
+                  string Title
+                  int MID FK
+              }
+              
+              SONG {
+                  string Title PK
+                  string Author
+                  int Album_ID FK
+              }
+              
+              PLAY_SONG {
+                  int MID FK
+                  string Song_Title FK
+              }
 
+              MUSICIAN ||--o{ PLAY_INSTRUMENT : ""
+              INSTRUMENT ||--o{ PLAY_INSTRUMENT : ""
+              MUSICIAN ||--o{ ALBUM : ""
+              ALBUM ||--o{ SONG : ""
+              MUSICIAN ||--o{ PLAY_SONG : ""
+              SONG ||--o{ PLAY_SONG : ""
+      </div>
+  </body>
+  </html>
