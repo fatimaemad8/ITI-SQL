@@ -1,1 +1,32 @@
+Problem 2: E-R Diagram for Real Estate Firm
 
+Entities and Attributes:
+1. Sales Office
+   - Office_Number (PK)
+   - Location
+
+2. Employee
+   - Employee_ID (PK)
+   - Employee_Name
+
+3. Property
+   - Property_ID (PK)
+   - Location (Address, City, State, Zip_Code)
+
+4. Owner
+   - Owner_ID (PK)
+   - Owner_Name
+
+Relationships:
+- Manages (between Employee and Sales Office)
+  - Cardinality: One-to-One (One Manager per Office)
+
+- Assigned_To (between Employee and Sales Office)
+  - Cardinality: Many-to-One
+
+- Lists (between Sales Office and Property)
+  - Cardinality: One-to-Many
+
+- Owns (between Owner and Property)
+  - Cardinality: Many-to-Many
+  - Attributes: Percent_Owned
