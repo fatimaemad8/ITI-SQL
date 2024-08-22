@@ -1,1 +1,25 @@
+Entities and Relationships:
 
+1. Sales_Office
+   - Num (Primary Key)
+   - Loc
+   - EmpID (Foreign Key)
+
+2. Employee
+   - ID (Primary Key)
+   - Name
+   - Sales_Office_Num (Foreign Key)
+
+3. Property
+   - Property_ID (Primary Key)
+   - Owner_ID (Foreign Key)
+   - Percent
+
+4. Owner
+   - ID (Primary Key)
+   - Name
+   - Add
+   - City
+   - State
+   - Zip
+   - Sales_Office_Num (Foreign Key)
