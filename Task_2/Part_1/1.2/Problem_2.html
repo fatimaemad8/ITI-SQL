@@ -1,1 +1,57 @@
 
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>E-R Diagram</title>
+      <script type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+          mermaid.initialize({ startOnLoad: true });
+      </script>
+  </head>
+  <body>
+      <div class="mermaid">
+          erDiagram
+              SALES_OFFICE {
+                  int Num PK
+                  string Loc
+                  int EmpID FK
+              }
+              
+              EMPLOYEE {
+                  int ID PK
+                  string Name
+              }
+              
+              PROPERTY {
+                  int Property_ID PK
+                  int Owner_ID FK
+              }
+              
+              OWN_PROPERTY {
+                  int Property_ID FK
+                  int Owner_ID FK
+                  float Percent
+              }
+              
+              OWNER {
+                  int ID PK
+                  string Name
+                  string Add
+                  string City
+                  string State
+                  string Zip
+                  int Sales_Office_Num FK
+              }
+
+              SALES_OFFICE ||--o{ EMPLOYEE : "employs"
+              SALES_OFFICE ||--o{ OWNER : "has"
+              EMPLOYEE ||--o{ SALES_OFFICE : "works_in"
+              OWNER ||--o{ OWN_PROPERTY : "owns"
+              PROPERTY ||--o{ OWN_PROPERTY : "is_part_of"
+              OWNER ||--o{ PROPERTY : "owns"
+              SALES_OFFICE ||--o{ PROPERTY : "manages"
+      </div>
+  </body>
+  </html>
