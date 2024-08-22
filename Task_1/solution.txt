@@ -1,1 +1,36 @@
+Problem 1: Conceptual Schema for Musicana
 
+**Entities and Attributes**:
+1. **Musician**
+   - Musician_ID (PK)
+   - Name
+   - Street
+   - City
+   - Phone_Number
+
+2. **Instrument**
+   - Instrument_Name (PK)
+   - Musical_Key
+
+3. **Album**
+   - Album_ID (PK)
+   - Title (Unique)
+   - Copyright_Date
+
+4. **Song**
+   - Song_Title (PK)
+   - Author
+
+**Relationships**:
+- **Plays** (between Musician and Instrument)
+  - Cardinality: Many-to-Many
+  - Attributes: None
+
+- **Contains** (between Album and Song)
+  - Cardinality: One-to-Many (One Album contains many Songs)
+
+- **Performs** (between Musician and Song)
+  - Cardinality: Many-to-Many
+
+- **Produces** (between Musician and Album)
+  - Cardinality: One-to-Many (One Producer for each Album)
