@@ -1,0 +1,59 @@
+Problem 4: E-R Diagram for Airlines
+
+Entities and Attributes:
+1. Airline
+   - Airline_ID (PK)
+   - Name
+   - Address
+   - Contact_Person
+   - Phone_Number
+
+2. Employee
+   - Employee_ID (PK)
+   - Name
+   - Address
+   - Birthday
+   - Gender
+   - Position
+   - Qualifications
+
+3. Aircraft
+   - Aircraft_ID (PK)
+   - Capacity
+   - Model
+
+4. Route
+   - Route_ID (PK)
+   - Origin
+   - Destination
+   - Distance
+   - Classification
+
+5. Crew
+   - Crew_ID (PK)
+   - Major_Pilot
+   - Assistant_Pilot
+   - Hostess_1
+   - Hostess_2
+
+6. Transaction
+   - Transaction_ID (PK)
+   - Date
+   - Description
+   - Amount
+
+Relationships:
+- Employs (between Airline and Employee)
+  - Cardinality: One-to-Many
+
+- Owns (between Airline and Aircraft)
+  - Cardinality: One-to-Many
+
+- Assigned_To (between Aircraft and Route)
+  - Cardinality: Many-to-Many
+
+- Crewed_By (between Aircraft and Crew)
+  - Cardinality: One-to-One
+
+- Records (between Airline and Transaction)
+  - Cardinality: One-to-Many
