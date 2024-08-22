@@ -1,0 +1,35 @@
+1. Musician
+   - ID (Primary Key)
+   - Name
+   - Street
+   - City
+   - Phone
+
+2. Instrument
+   - Name (Primary Key)
+   - Key
+
+3. Play_Instrument
+   - MID (Foreign Key referencing Musician.ID)
+   - Inst_name (Foreign Key referencing Instrument.Name)
+
+4. Album
+   - ID (Primary Key)
+   - Date
+   - Title
+   - MID (Foreign Key referencing Musician.ID)
+
+5. Song
+   - Title (Primary Key)
+   - Author
+   - Album_ID (Foreign Key referencing Album.ID)
+
+6. **Play_Song**
+   - MID (Foreign Key referencing Musician.ID)
+   - Song_Title (Foreign Key referencing Song.Title)
+
+ Relationships:
+- A Musician can play multiple **Instruments** (many-to-many relationship through `Play_Instrument`).
+- A Musician can release multiple **Albums** (one-to-many relationship).
+- An Album can contain multiple **Songs** (one-to-many relationship).
+- A Musician can perform multiple **Songs** (many-to-many relationship through `Play_Song`).
