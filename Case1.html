@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-R Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        erDiagram
+            EMPLOYEE {
+                string SSN PK
+                string Fname
+                string Lname
+                date Birth_Date
+                string Gender
+            }
+
+            DEPARTMENT {
+                string DName
+                int DNUM PK
+                string Location
+            }
+
+            PROJECT {
+                string Pname
+                int PNumber PK
+                string Location
+                string City
+            }
+
+            DEPENDENT {
+                string Dependent_Name PK
+                string Gender
+                date Birth_Date
+            }
+
+            EMPLOYEE ||--o{ DEPENDENT : has
+            EMPLOYEE ||--o| DEPARTMENT : works_in
+            DEPARTMENT ||--o| EMPLOYEE : manages
+            DEPARTMENT ||--o{ PROJECT : has
+            EMPLOYEE ||--o{ PROJECT : works_on
+    </div>
+</body>
+</html>
