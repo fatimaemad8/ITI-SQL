@@ -1,1 +1,39 @@
+Problem 3: E-R Diagram for General Hospital
+
+Entities and Attributes:
+1. Ward
+   - Ward_ID (PK)
+   - Name
+
+2. Patient
+   - Patient_ID (PK)
+   - Name
+   - Date_Of_Birth
+
+3. Consultant
+   - Consultant_ID (PK)
+   - Name
+
+4. Nurse
+   - Nurse_Number (PK)
+   - Name
+   - Address
+
+5. Drug
+   - Drug_Code (PK)
+   - Recommended_Dosage
+   - Brand_Name
+
+Relationships:
+- Hosts (between Ward and Patient)
+  - Cardinality: One-to-Many
+
+- Assigned_To (between Patient and Consultant)
+  - Cardinality: Many-to-One
+
+- Supervises (between Nurse and Ward)
+  - Cardinality: One-to-One
+
+- Administers (between Nurse and Drug)
+  - Cardinality: Many-to-Many
 
