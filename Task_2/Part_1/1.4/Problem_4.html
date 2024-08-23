@@ -1,1 +1,92 @@
+  <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-R Diagram</title>
+        <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    </head>
+    <body>
+        <div class="mermaid">
+            erDiagram
+                Airline {
+                    int ID
+                    string Name
+                    string Address
+                    string Contact
+                }
+                Airline_Phone {
+                    int AirlineID
+                    string Phone
+                }
+                Transaction {
+                    int ID
+                    int AirlineID
+                    date Date
+                    decimal Amount
+                    string Description
+                }
+                Employee {
+                    int ID
+                    int AirlineID
+                    string Name
+                    string Address
+                    int Day
+                    int Month
+                    int Year
+                    string Position
+                    string Gender
+                }
+                Employee_Qualification {
+                    int EmpID
+                    string Qualification
+                }
+                Aircraft {
+                    int ID
+                    int AirlineID
+                    int Capacity
+                    string Model
+                }
+                Crew {
+                    int ID
+                    int AircraftID
+                    string MajorPilot
+                    string AssPilot
+                    string Hostess1
+                    string Hostess2
+                }
+                Route {
+                    int ID
+                    int Distance
+                    string Origin
+                    string Destination
+                    string Classification
+                }
+                AssignRoute {
+                    int AircraftID
+                    int RouteID
+                    decimal Price
+                    int NoPass
+                    datetime DeptDateTime
+                    datetime ArrDateTime
+                }
 
+                Airline ||--o{ Airline_Phone : has
+                Airline ||--o{ Transaction : processes
+                Airline ||--o{ Employee : employs
+                Employee ||--o{ Employee_Qualification : has
+                Airline ||--o{ Aircraft : owns
+                Aircraft ||--o{ Crew : has
+                Aircraft ||--o{ AssignRoute : assigned_to
+                Route ||--o{ AssignRoute : serves
+                Airline ||--o{ Transaction : has
+                Airline ||--o{ Employee : has
+                Aircraft ||--o{ Crew : has
+                Employee ||--o{ Employee_Qualification : has
+                AssignRoute ||--o{ Aircraft : uses
+                AssignRoute ||--o{ Route : serves
+        </div>
+    </body>
+  </html>
