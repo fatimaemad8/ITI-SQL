@@ -1,1 +1,57 @@
+Healthcare Database Entities and Relationships
 
+Entities:
+
+1. Ward
+   - ID (int) - Primary Key
+   - Name (string)
+   - NID (int)
+
+2. Nurse
+   - ID (int) - Primary Key
+   - Name (string)
+   - WID (int)
+
+3. Drug
+   - ID (int) - Primary Key
+   - Name (string)
+
+4. Drug Brand
+   - DID (int) - Primary Key
+   - Brand (string)
+
+5. Give Drug
+   - PID (int) - Foreign Key
+   - DID (int) - Foreign Key
+   - NID (int) - Foreign Key
+   - Date (date)
+   - Time (time)
+   - Dosage (string)
+
+6. Patient
+   - ID (int) - Primary Key
+   - Name (string)
+   - DOB (date)
+   - CID (int)
+
+7. Examine Patient
+   - CID (int) - Foreign Key
+   - PI (int) - Foreign Key
+
+8. Consultant
+   - ID (int) - Primary Key
+   - Name (string)
+
+
+Relationships:
+
+1. Ward contains Nurse: A ward can have multiple nurses.
+2. Nurse belongs to Ward: Each nurse is assigned to one ward.
+3. Drug has Drug Brand: A drug can have multiple associated brands.
+4. Drug Brand used in Give Drug: A drug brand can be administered multiple times.
+5. Nurse administers Give Drug: Nurses give drugs to patients.
+6. Patient receives Give Drug: Patients can receive multiple drugs.
+7. Patient examined by Examine Patient: A patient can undergo multiple examinations.
+8. Consultant conducts Examine Patient: A consultant can examine multiple patients.
+9. Nurse uses NID in Give Drug: Each drug administration is linked to one nurse.
+10. Ward uses WID in Give Drug: Each drug administration is linked to one ward.
