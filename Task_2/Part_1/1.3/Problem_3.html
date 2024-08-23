@@ -1,1 +1,79 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>E-R Diagram</title>
+      <script type="module">
+          import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+          mermaid.initialize({ startOnLoad: true });
+      </script>
+  </head>
+  <body>
+      <div class="mermaid">
+          erDiagram
+              WARD {
+                  int ID PK
+                  string Name
+                  int NID
+              }
+              
+              NURSE {
+                  int ID PK
+                  string Name
+                  int WID
+              }
+              
+              DRUG {
+                  int ID PK
+                  string Name
+              }
+              
+              DRUG_BRAND {
+                  int DID PK
+                  string Brand
+              }
+              
+              GIVE_DRUG {
+                  int PID FK
+                  int DID FK
+                  int NID FK
+                  date Date
+                  time Time
+                  string Dosage
+              }
+              
+              PATIENT {
+                  int ID PK
+                  string Name
+                  date DOB
+                  int CID
+              }
+              
+              EXAMINE_PATIENT {
+                  int CID FK
+                  int PI FK
+              }
+              
+              CONSULTANT {
+                  int ID PK
+                  string Name
+              }
 
+              WARD ||--o{ NURSE : contains
+              NURSE }|--|| WARD : belongs_to
+
+              DRUG ||--o{ DRUG_BRAND : has
+              DRUG_BRAND ||--o{ GIVE_DRUG : used_in
+
+              NURSE ||--o{ GIVE_DRUG : administers
+              PATIENT ||--o{ GIVE_DRUG : receives
+
+              PATIENT ||--o{ EXAMINE_PATIENT : examined_by
+              CONSULTANT ||--o{ EXAMINE_PATIENT : conducts
+
+              NURSE ||--|| GIVE_DRUG : uses_NID
+              WARD ||--|| GIVE_DRUG : uses_WID
+      </div>
+  </body>
+  </html>
