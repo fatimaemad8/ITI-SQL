@@ -1,1 +1,92 @@
+  Airline Database Entities and Relationships
 
+  Entities:
+  1. Airline
+     - ID: int
+     - Name: string
+     - Address: string
+     - Contact: string
+
+  2. Airline_Phone
+     - AirlineID: int
+     - Phone: string
+
+  3. Transaction
+     - ID: int
+     - AirlineID: int
+     - Date: date
+     - Amount: decimal
+     - Description: string
+
+  4. Employee
+     - ID: int
+     - AirlineID: int
+     - Name: string
+     - Address: string
+     - Day: int
+     - Month: int
+     - Year: int
+     - Position: string
+     - Gender: string
+
+  5. Employee_Qualification
+     - EmpID: int
+     - Qualification: string
+
+  6. Aircraft
+     - ID: int
+     - AirlineID: int
+     - Capacity: int
+     - Model: string
+
+  7. Crew
+     - ID: int
+     - AircraftID: int
+     - MajorPilot: string
+     - AssPilot: string
+     - Hostess1: string
+     - Hostess2: string
+
+  8. Route
+     - ID: int
+     - Distance: int
+     - Origin: string
+     - Destination: string
+     - Classification: string
+
+  9. AssignRoute
+     - AircraftID: int
+     - RouteID: int
+     - Price: decimal
+     - NoPass: int
+     - DeptDateTime: datetime
+     - ArrDateTime: datetime
+
+
+1. Airline to Airline_Phone: Each airline can have multiple phone numbers associated with it. This relationship allows for flexibility in managing contact details.
+
+2. Airline to Transaction: An airline processes multiple transactions, which could include ticket sales, refunds, etc. Each transaction is linked to a specific airline.
+
+3. Airline to Employee: Airlines employ multiple employees. This relationship captures the workforce associated with each airline.
+
+4. Employee to Employee_Qualification: Each employee can have multiple qualifications. This relationship highlights the skills and certifications of employees.
+
+5. Airline to Aircraft: An airline owns multiple aircraft. This relationship is crucial for managing the fleet of planes used for operations.
+
+6. Aircraft to Crew: Each aircraft has a dedicated crew assigned to it, including pilots and flight attendants. This relationship ensures that each flight has the necessary personnel.
+
+7. Aircraft to AssignRoute: Aircraft are assigned to specific routes. This relationship helps in scheduling and operational management.
+
+8. Route to AssignRoute: Each route can be served by multiple assignments, which include details like pricing and passenger capacity. This relationship facilitates route management.
+
+9. Airline to Transaction (again): Reinforces that an airline can have multiple transactions, emphasizing its role in revenue generation.
+
+10. Airline to Employee (again): Reiterates the connection between airlines and their employees, ensuring all personnel are accounted for.
+
+11. Aircraft to Crew (again): Emphasizes the need for crew assignments per aircraft for operational efficiency.
+
+12. Employee to Employee_Qualification (again): Highlights the ongoing need to track employee qualifications.
+
+13. AssignRoute to Aircraft: Indicates that specific route assignments are tied to particular aircraft, facilitating scheduling and resource management.
+
+14. AssignRoute to Route: Ensures that each route assignment is linked to its corresponding route, providing clarity in operational planning.
